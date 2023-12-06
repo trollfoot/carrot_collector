@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class player : MonoBehaviour
 {
 
-    public FloatingJoystick joystick;
+
+    public FixedJoystick joystick;
     public float moveSpeed;
 
     float hInput, vInput;
@@ -26,7 +27,7 @@ public class player : MonoBehaviour
 private void FixedUpdate()
 {
     hInput = joystick.Horizontal * moveSpeed;
-    vInput = joystick.vertical * moveSpeed;
+    vInput = joystick.Vertical * moveSpeed;
 
     transform.Translate(hInput, vInput, 0);
 }
