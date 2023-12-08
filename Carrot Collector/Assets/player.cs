@@ -12,6 +12,12 @@ public class player : MonoBehaviour
 
     float hInput, vInput;
 
+    int score = 0;
+    public int winScore;
+
+    public GameObject winText;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,5 +38,21 @@ private void FixedUpdate()
     transform.Translate(hInput, vInput, 0);
 }
 
+
+void OnCollisionEnter2D(Collision2D collision) 
+{
+
+if(collision.gameObject.tag == "carrot")
+    {
+        score++;
+        Destroy(collision.gameObject);
+
+        if(score >= winScore)
+        {
+            winText.SetActive(true);
+        }
+    }
+
+}
 
 }
